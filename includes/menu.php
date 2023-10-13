@@ -9,6 +9,7 @@ $menu=array(
 	'Select'=>'select',
 	"Compare"=>'compare',
 	"Upload"=>"upload",
-	"Admin"=>"query"
+	"Admin"=>"query",
+	"Logout"=>"/_gcp_iap/clear_login_cookie"
 );
 $_SESSION["menu"]=$menu;
