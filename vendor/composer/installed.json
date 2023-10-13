@@ -1,0 +1,47 @@
+{
+    "packages": [
+        {
+            "name": "jcoonrod/classes",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jcoonrod/classes.git",
+                "reference": "0023cd9cf29ffb5decef2b27b5081c28edfb284b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jcoonrod/classes/zipball/0023cd9cf29ffb5decef2b27b5081c28edfb284b",
+                "reference": "0023cd9cf29ffb5decef2b27b5081c28edfb284b",
+                "shasum": ""
+            },
+            "time": "2023-06-17T16:27:16+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Thpglobal\\Classes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Coonrod",
+                    "email": "john@mcld.org"
+                }
+            ],
+            "description": "JC version of app classes",
+            "support": {
+                "issues": "https://github.com/jcoonrod/classes/issues",
+                "source": "https://github.com/jcoonrod/classes/tree/main"
+            },
+            "install-path": "../jcoonrod/classes"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

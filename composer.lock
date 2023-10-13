@@ -1,0 +1,61 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "de6cbc9b3946c1869ac22526fb06f10d",
+    "packages": [
+        {
+            "name": "jcoonrod/classes",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jcoonrod/classes.git",
+                "reference": "0023cd9cf29ffb5decef2b27b5081c28edfb284b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jcoonrod/classes/zipball/0023cd9cf29ffb5decef2b27b5081c28edfb284b",
+                "reference": "0023cd9cf29ffb5decef2b27b5081c28edfb284b",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Thpglobal\\Classes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Coonrod",
+                    "email": "john@mcld.org"
+                }
+            ],
+            "description": "JC version of app classes",
+            "support": {
+                "issues": "https://github.com/jcoonrod/classes/issues",
+                "source": "https://github.com/jcoonrod/classes/tree/main"
+            },
+            "time": "2023-06-17T16:27:16+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "jcoonrod/classes": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.1"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

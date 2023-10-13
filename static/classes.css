@@ -1,0 +1,141 @@
+/* main styling for Thpglobal/Classes -- NEEDED mobile menu
+   The basic tags first */ 
+
+:root{--primary: #000088; --secondary:lightblue;box-sizing:border-box;}
+* { font-family:'Source Sans Pro', sans-serif;}
+main {padding:1rem; background:white;}
+p, input, button, select, textarea {font-size:1.2rem;margin-bottom:1rem;}
+button {padding:0.5rem 1rem; color:white; background-color:var(--primary); border-radius:1rem;}
+button:hover {font-weight:bold;}
+h1 {font-size:2.4rem;font-weight:normal;color: black;}
+
+/* font-awesome styles */
+.fa {color:var(--primary); text-decoration:none;}
+.fa:hover {text-decoration:underline;}
+
+/* flex grid styling */
+section, .pure-g {display:flex; flex-wrap:wrap; 
+  align-items:left; padding-bottom:2rem; 
+  min-width: 200px;}
+fieldset {display:flex; flex-direction: column; width:auto; padding:1rem; border-radius:1rem;}
+
+
+/* the menu system */
+
+nav {display:flex; background-color:var(--primary); font-size:1rem;}
+
+nav ul {
+  background: var(--primary);
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+nav ul li {
+  color: #fff;
+  background: var(--primary);
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+  
+nav ul li a {
+  color: inherit; text-decoration: none;
+}
+
+nav ul li:hover {
+  background: white;
+  color:black;
+  cursor: pointer;
+}
+
+
+nav ul li ul {
+  background-color: white;
+  border: 1px solid black;
+  color:black;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+  z-index:10;
+}
+
+nav ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+nav ul li ul li {
+  clear: both;
+  width: 100%;
+}
+
+
+.jumbotron {
+    padding: 1.5em; background-color: var(--secondary); margin-bottom:1rem; border-radius: 1rem;
+}
+
+span.fa-info-circle {cursor:pointer;}
+.sticky {position: sticky; top: -1px;}
+
+table, td, th {border: 1px solid var(--primary); border-collapse:collapse;}
+td,th {padding:0.5rem; text-align:center;}
+th {background-color:var(--primary);color:white;  max-width:25vw;}
+th > a {color:white;}
+td {max-width:25vw;}
+
+.datatable-top {display:flex; justify-content:space-between;}
+.datatable-input {width:5rem;padding:0;margin:0;height:1.6rem;width:90%}
+th.datatable-ascending > a::after{content:"\a0^"}
+th.datatable-descending > a::after{content:"\a0v"}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+/* slide switch instead of checkbox ref https://codepen.io/morgoe/pen/VvzWQg */
+label[role=toggle] {
+  display: inline-block;
+  cursor: pointer;
+}
+input[role=toggle] {
+    display: none;
+}
+div[role=toggle] {
+    position: relative;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    background: darkgrey;
+    transition: background 0.2s;
+}
+div[role=toggle]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 1.5rem;
+    transition: transform 0.2s;
+}
+input[role=toggle]:checked ~ div[role=toggle] {
+    background: green;
+}
+
+input[role=toggle]:checked ~ div[role=toggle]::after {
+    transform: translateX(1.5rem);
+}

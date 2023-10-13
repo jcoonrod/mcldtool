@@ -1,0 +1,136 @@
+/* This file are things that only pertain to this app */
+
+:root {--primary: teal; --secondary: turquoise;}
+
+select {padding:0.5rem;}
+.green-text {color:green;}
+.gold-text {color:gold;}
+
+form {margin-right:1rem;}
+
+/* for the bd outputs */
+
+.closed {
+    display: none;
+}
+.opened {
+    display: block;
+}
+
+/* for the form conditions */
+
+.info-success {
+    background-color: darkgreen;
+    color: white;
+    border: 1px solid #cbcbcb;
+	border-width: 1px 1px;
+	margin: 0;
+    padding: .5em 1em;
+    text-align: center;
+    margin-bottom:20px;
+}
+.info-success > div, .info-success > span {
+	color:black;
+	background-color: #f2f2f2;
+	max-width:50px;
+	padding: .1em 1em;
+}
+.info-error {
+    background-color: red;
+    color: white;
+    border: 1px solid #cbcbcb;
+	border-width: 1px 1px;
+	margin: 0;
+    padding: .5em 1em;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.total {
+	background-color:darkgrey;
+}
+tr.wacolor, tr.wacolor > td {
+	background-color:#FF8787
+	 !important;
+}
+span.wacolor {
+	background-color:#FF8787;
+	padding: 5px;
+}
+
+
+label {
+  clear: both;
+}
+
+.status {
+  font-size: 1.25em;
+  vertical-align: middle;
+  margin-left: 0.5em;
+}
+
+input[type] {
+  box-shadow: none;
+  border: 0;
+  border-radius: 4px;
+}
+
+input:focus, input:active, textarea:focus, textarea:active {
+  background: rgba(200, 200, 200, 0.25);
+  border: 2px rgb(200, 200, 200) solid;
+}
+
+input:focus ~ .status::after, input:active ~ .status::after,
+textarea:focus ~ .status::after, textarea:active ~ .status::after {
+  display: none;
+}
+
+input:invalid, textarea:invalid {
+  border: 2px rgb(200, 0, 0) solid;
+  background: rgba(200, 0, 0, 0.25);
+}
+
+input:invalid ~ .status::after, textarea:invalid ~ .status::after  {
+  color: rgb(200, 0, 0);
+  content: " \2716 ";
+}
+
+input:valid,textarea:valid {
+  border: 2px #00beaf solid !important;
+  background: #e5f8f7;
+  color: black;
+}
+
+input:valid ~ .status::after, textarea:valid ~ .status::after  {
+  color: rgb(0, 200, 0);
+  content: " \2714 ";
+}
+
+
+/*The colors for the thumbs to not be overriden*/
+.fa-thumbs-up:before{
+    color:#00beaf ;
+}
+.fa-thumbs-up:after{
+    color:#00beaf ;
+}
+.fa-thumbs-down:before{
+    color:#ff8787 ;
+}
+.fa-thumbs-down:after{
+    color:#ff8787 ;
+}
+
+.phase{
+width: 3px;
+font-size: x-large;
+/* border: 1px solid #0000aa; */
+border-radius: 50%;
+/* width: 70%; */
+width: 27.44px;
+text-align : center;
+background: #0000aa;
+color: white;
+/* box-sizing: border-box; */
+height: 32px;
+}

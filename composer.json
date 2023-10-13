@@ -1,0 +1,7 @@
+{
+    "require": {
+      "jcoonrod/classes": "dev-main",
+      "php": ">=8.1"
+    }
+  }
+  
