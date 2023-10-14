@@ -12,3 +12,4 @@ if(LOCAL) {
 	$user=$email;
 	$name=$_SERVER['HTTP_X_APPENGINE_USER_NICKNAME'];
 }
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

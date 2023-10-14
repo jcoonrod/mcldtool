@@ -7,3 +7,4 @@ if(php_sapi_name()=='cli-server') {
 } else {
 	$db = new PDO("mysql:unix_socket=/cloudsql/thpbudget:us-east1:thpbudget;dbname=mcld","root","Vision2050");
 }
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

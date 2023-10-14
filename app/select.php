@@ -1,9 +1,10 @@
 <?php
+require_once($_SERVER["DOCUMENT_ROOT"]."/includes/reader.php"); // change user to root
+
 $page=new Thpglobal\Classes\Page;
 $page->start("Select one of more records to analyze");
 $grid=new Thpglobal\Classes\Table;
 echo("<form action=analyze method=POST>");
-require_once($_SERVER["DOCUMENT_ROOT"]."/includes/reader.php"); // change user to root
 
 $grid->start($db);
 $grid->query("select id,edate,program,ename from comdata");

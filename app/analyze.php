@@ -1,4 +1,6 @@
 <?php
+require_once($_SERVER["DOCUMENT_ROOT"]."/includes/reader.php"); // change user to root
+
 $ncol=1;
 foreach($_POST as $key=>$value) {
     $id=substr($key,1);

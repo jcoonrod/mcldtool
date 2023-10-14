@@ -58,7 +58,6 @@ $user_email = $user;
 $email=$user_email;
 //Set Edit privilege - NO reason to have this be a function - and no reason to do it during session.
 
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // THe menu can depend on permissions.
 require_once($_SERVER['DOCUMENT_ROOT']."/includes/menu.php");
