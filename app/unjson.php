@@ -1,4 +1,5 @@
 <?php
+
 $page=new Thpglobal\Classes\Page;
 $page->start("Contents of the uploaded json file");
 $json_string=file_get_contents($_FILES['userfile']['tmp_name']);
