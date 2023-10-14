@@ -1,6 +1,8 @@
 <?php
 // 2023-04 Heighten security via reader login and constant permission settings
 define("LOCAL",php_sapi_name()=='cli-server');
+define("ADMIN",TRUE);
+define("CAN_EDIT",TRUE);
 if(LOCAL) {
 	$db=new PDO('mysql:host=localhost;dbname=mcld','reader','SDG2030');
 	$email="john.coonrod@thp.org";

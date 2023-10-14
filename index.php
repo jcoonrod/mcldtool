@@ -20,7 +20,7 @@ require_once __DIR__.'/includes/menu.php';
 
 $url=$_SERVER['REQUEST_URI'];
 $path=parse_url($url, PHP_URL_PATH);
-$generics=['/cookies', '/dump', '/export',  '/list', '/logout',  '/query', '/update','/upload']; // standard routines defined in the classes
+$generics=['/cookies', '/dump', '/export',  '/list', '/logout',  '/query', '/update']; // standard routines defined in the classes
 
 // modify to run locally with a local database without logging in!
 

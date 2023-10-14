@@ -9,6 +9,8 @@ $menu=array(
 	'Select'=>'select',
 	"Compare"=>'compare',
 	"Upload"=>"upload",
+	"Data"=>"dump",
+	"Charts"=>"charts",
 	"Admin"=>"query",
 	"Logout"=>"/_gcp_iap/clear_login_cookie"
 );
