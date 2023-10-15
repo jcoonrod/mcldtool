@@ -1,7 +1,7 @@
 <?php
 // this script is included in any script that needs to write to the database
 $db=NULL; // Close the old connection
-if(!CAN_EDIT) Die("Noth authorized to write the database");
+if(!CAN_EDIT) Die("Not authorized to write the database");
 if(php_sapi_name()=='cli-server') {
 	$db=new PDO('mysql:host=localhost;dbname=mcld','johncoonrod','Vision2050');
 } else {

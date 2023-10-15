@@ -8,10 +8,17 @@ foreach($_POST as $key=>$value) {
     $i=0;
     foreach($result as $k=>$cell) {
         if($ncol==1) $table[$i][0]=$k;
+        // Normalize the scores from0 to 100.
+        if($k>='a1' and $k<='i4') {
+            $num=(int) $cell;
+            if($num) $num=ceil(($num-1)*100.0/3.0);
+            $cell=$num;
+        }
         $table[$i][$ncol]=$cell;
         $i++;
     }
     $ncol++;
 }
+
 $_SESSION["contents"]=$table;
 header("Location:dump");

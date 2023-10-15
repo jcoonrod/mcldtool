@@ -7,7 +7,6 @@ $warning="<span title='Under Construction' class='fa fa-warning'></span>";
 $menu=array(
 	"MCLD Home"=>"/",
 	'Select'=>'select',
-	"Compare"=>'compare',
 	"Upload"=>"upload",
 	"Data"=>"dump",
 	"Charts"=>"charts",

@@ -8,7 +8,7 @@ function radar2($title,$data1,$data2,$max=100){
     foreach($data1 as $key=>$value) $labels[]=$key;
     radargrid($labels,$max);
     radarlayer($data1,'rgb(0,255,0,0.3)',$max);
-    radarlayer($data2,'rgb(0,0,255,0.3)',$max);
+    if(sizeof($data2))radarlayer($data2,'rgb(0,0,255,0.3)',$max);
     chartend();
 }
 
@@ -72,34 +72,37 @@ function radarlayer($data,$fill,$max=100){
 
 // Copy $t out of $_SESSION["contents];
 $nrows=sizeof($_SESSION["contents"]);
-for($i=0;$i<$nrows;$i++) {
-    $t[$_SESSION["contents"][$i][0]]=$_SESSION["contents"][$i][1];
-    $u[$_SESSION["contents"][$i][0]]=$_SESSION["contents"][$i][2];
-}
+$ncols=sizeof($_SESSION["contents"][0]);
+$u=[]; $data2=[]; //defaults if only one column of data
+$twocols=($ncols==3);
+for($i=0;$i<$nrows;$i++) $t[$_SESSION["contents"][$i][0]]=$_SESSION["contents"][$i][1];
+if($twocols){for($i=0;$i<$nrows;$i++) $u[$_SESSION["contents"][$i][0]]=$_SESSION["contents"][$i][2];}
 
 $page=new Thpglobal\Classes\Page;
 
 $page->start("Charts for ".$t["organization"]." ".$t["date"]);
 // Pull data from $_SESSION contents into dimesions
-$data=["A"=>floor( ($t['a1']+$t['a2']+$t['a3']+$t['a4']+$t['a5']+$t['a6']+$t['a7'])*100.0/28.0),
-    "B"=>floor( ($t['b1']+$t['b2'])*100.0/8.0),
-    "C"=>floor(($t['c1']+$t['c2']+$t['c3']+$t['c4']+$t['c5'])*100.0/20.0),
-    "D"=>floor(($t['d1']+$t['d2'])*100.0/8.0),
-    "E"=>floor(($t['e1']+$t['e2'])*100.0/8.0),
-    "F"=>floor(($t['f1']+$t['f2'])*100.0/8.0),
-    "G"=>floor($t['g1']*100.0/4.0),
-    "H"=>floor(($t['h1']+$t['h2']+$t['h3'])*100.0/12.0),
-    "I"=>floor(($t['i1']+$t['i2']+$t['i3'])*100.0/12.0)];
-
-$data2=["A"=>floor( ($u['a1']+$u['a2']+$u['a3']+$u['a4']+$u['a5']+$u['a6']+$u['a7'])*100.0/28.0),
-    "B"=>floor( ($u['b1']+$u['b2'])*100.0/8.0),
-    "C"=>floor(($u['c1']+$u['c2']+$u['c3']+$u['c4']+$u['c5'])*100.0/20.0),
-    "D"=>floor(($u['d1']+$u['d2'])*100.0/8.0),
-    "E"=>floor(($u['e1']+$u['e2'])*100.0/8.0),
-    "F"=>floor(($u['f1']+$u['f2'])*100.0/8.0),
-    "G"=>floor($u['g1']*100.0/4.0),
-    "H"=>floor(($u['h1']+$u['h2']+$u['h3'])*100.0/12.0),
-    "I"=>floor(($u['i1']+$u['i2']+$u['i3'])*100.0/12.0)];
+const lengths = [6, 2, 5, 3, 2, 4, 1, 3, 4]; // number of sub-elements in each
+$data=["A"=>floor( ($t['a1']+$t['a2']+$t['a3']+$t['a4']+$t['a5']+$t['a6'])/6.0),
+    "B"=>floor( ($t['b1']+$t['b2'])/2.0),
+    "C"=>floor(($t['c1']+$t['c2']+$t['c3']+$t['c4']+$t['c5'])/5.0),
+    "D"=>floor(($t['d1']+$t['d2'])/2.0),
+    "E"=>floor(($t['e1']+$t['e2'])/2.0),
+    "F"=>floor(($t['f1']+$t['f2'])/2.0),
+    "G"=>$t['g1'],
+    "H"=>floor(($t['h1']+$t['h2']+$t['h3'])/3.0),
+    "I"=>floor(($t['i1']+$t['i2']+$t['i3'])/3.0)];
+if($twocols){
+  $data2=["A"=>floor( ($u['a1']+$u['a2']+$u['a3']+$u['a4']+$u['a5']+$u['a6']+$u['a7'])/6),
+    "B"=>floor( ($u['b1']+$u['b2'])/2.0),
+    "C"=>floor(($u['c1']+$u['c2']+$u['c3']+$u['c4']+$u['c5'])/5.0),
+    "D"=>floor(($u['d1']+$u['d2'])/2.0),
+    "E"=>floor(($u['e1']+$u['e2'])/2.0),
+    "F"=>floor(($u['f1']+$u['f2'])/2.0),
+    "G"=>$u['g1'],
+    "H"=>floor(($u['h1']+$u['h2']+$u['h3'])/3.0),
+    "I"=>floor(($u['i1']+$u['i2']+$u['i3'])/3.0)];
+}
 echo("<p>Data: ".print_r($data,TRUE)."</p>\n");
 echo("<section>\n");
 $ctitle="Scores by Dimension";
@@ -107,23 +110,23 @@ $ctitle="Scores by Dimension";
 radar2($ctitle,$data,$data2,100);
 
 $ctitle="Dimension A";
-$data=['A1'=>25*$t['a1'],'A2'=>25*$t['a2'],'A3'=>25*$t['a3'],'A4'=>25*$t['a4'],'A5'=>25*$t['a5'],'A6'=>25*$t['a6'],'A7'=>25*$t['a7']];
-$data2=['A1'=>25*$u['a1'],'A2'=>25*$u['a2'],'A3'=>25*$u['a3'],'A4'=>25*$u['a4'],'A5'=>25*$u['a5'],'A6'=>25*$u['a6'],'A7'=>25*$u['a7']];
+$data=['A1'=>$t['a1'],'A2'=>$t['a2'],'A3'=>$t['a3'],'A4'=>$t['a4'],'A5'=>$t['a5'],'A6'=>$t['a6']];
+if($twocols) $data2=['A1'=>$u['a1'],'A2'=>$u['a2'],'A3'=>$u['a3'],'A4'=>$u['a4'],'A5'=>$u['a5'],'A6'=>$u['a6']];
 radar2($ctitle,$data,$data2,100);
 
-$ctitle="Dimension C";
-$data=['A1'=>25*$t['a1'],'A2'=>25*$t['a2'],'A3'=>25*$t['a3'],'A4'=>25*$t['a4'],'A5'=>25*$t['a5'],'A6'=>25*$t['a6'],'A7'=>25*$t['a7']];
-$data2=['A1'=>25*$u['a1'],'A2'=>25*$u['a2'],'A3'=>25*$u['a3'],'A4'=>25*$u['a4'],'A5'=>25*$u['a5'],'A6'=>25*$u['a6'],'A7'=>25*$u['a7']];
+$ctitle="Dimension B & C";
+$data=['B1'=>$t['b1'],'B2'=>$t['b2'],'C1'=>$t['c1'],'C2'=>$t['c2'],'C3'=>$t['c3'],'C4'=>$t['c4'],'C5'=>$t['c5']];
+if($twocols) $data2=['B1'=>$u['b1'],'B2'=>$u['b2'],'C1'=>$u['c1'],'C2'=>$u['c2'],'C3'=>$u['c3'],'C4'=>$u['c4'],'C5'=>$u['c5']];
 radar2($ctitle,$data,$data2,100);
 
-$ctitle="Dimensions B, D, E, F, G";
-$data=['B1'=>25*$t['b1'],'B2'=>25*$t['b2'],'D1'=>25*$t['d1'],'D2'=>25*$t['d2'],'E1'=>25*$t['e1'],'E2'=>25*$t['e2'],'F1'=>25*$t['f1'],'F2'=>25*$t['f2'],'G1'=>25*$t['g1']];
-$data2=['B1'=>25*$u['b1'],'B2'=>25*$u['b2'],'D1'=>25*$u['d1'],'D2'=>25*$u['d2'],'E1'=>25*$u['e1'],'E2'=>25*$t['e2'],'F1'=>25*$t['f1'],'F2'=>25*$t['f2'],'G1'=>25*$t['g1']];
+$ctitle="Dimensions D, E, F, G";
+$data=['D1'=>$t['d1'],'D2'=>$t['d2'],'E1'=>$t['e1'],'E2'=>$t['e2'],'F1'=>$t['f1'],'F2'=>$t['f2'],'G1'=>$t['g1']];
+if($twocols) $data2=['D1'=>$u['d1'],'D2'=>$u['d2'],'E1'=>$u['e1'],'E2'=>$t['e2'],'F1'=>$t['f1'],'F2'=>$t['f2'],'G1'=>$t['g1']];
 radar2($ctitle,$data,$data2,100);
 
 $ctitle="Dimensions H and I";
-$data=['H1'=>25*$t['h1'],'H2'=>25*$t['h2'],'H3'=>25*$t['h3'],'I1'=>25*$t['i1'],'I2'=>25*$t['i2'],'I3'=>25*$t['i3']];
-$data=['H1'=>25*$u['h1'],'H2'=>25*$u['h2'],'H3'=>25*$u['h3'],'I1'=>25*$u['i1'],'I2'=>25*$u['i2'],'I3'=>25*$u['i3']];
+$data=['H1'=>$t['h1'],'H2'=>$t['h2'],'H3'=>$t['h3'],'I1'=>$t['i1'],'I2'=>$t['i2'],'I3'=>$t['i3']];
+if($twocols)$data2=['H1'=>$u['h1'],'H2'=>$u['h2'],'H3'=>$u['h3'],'I1'=>$u['i1'],'I2'=>$u['i2'],'I3'=>$u['i3']];
 radar2($ctitle,$data,$data2,100);
 
 echo("</section>\n");
