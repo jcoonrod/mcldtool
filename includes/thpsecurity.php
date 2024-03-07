@@ -1,5 +1,5 @@
 <?php
-// 2023-04 Heighten security via reader login and constant permission settings
+require_once(__DIR__."/root.php"); // define $db
 define("LOCAL",php_sapi_name()=='cli-server');
 define("ADMIN",TRUE);
 define("CAN_EDIT",TRUE);
