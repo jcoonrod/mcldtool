@@ -2,4 +2,4 @@
 clear
 date
 # deploy
-gcloud app deploy ./app.yaml --version=1 --project=mcldtest
+gcloud app deploy ./app.yaml --version=1 --project=mcldtool
