@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"]."/includes/reader.php"); // change user to root
+require_once($_SERVER["DOCUMENT_ROOT"]."/includes/root.php"); // change user to root
 
 $page=new Thpglobal\Classes\Page;
 $page->start("Select one of two records to analyze");

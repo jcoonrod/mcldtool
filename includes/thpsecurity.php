@@ -59,9 +59,6 @@ $email=$user_email;
 //Set Edit privilege - NO reason to have this be a function - and no reason to do it during session.
 
 
-// THe menu can depend on permissions.
-require_once($_SERVER['DOCUMENT_ROOT']."/includes/menu.php");
-
 function debug($msg,$x) {
 	if(getcookie("debug")) {
     	echo("<p>Debug $msg: ");print_r($x);echo("</p>\n");
