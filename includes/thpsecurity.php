@@ -1,8 +1,9 @@
 <?php
-require_once(__DIR__."/root.php"); // define $db
 define("LOCAL",php_sapi_name()=='cli-server');
 define("ADMIN",TRUE);
 define("CAN_EDIT",TRUE);
+require_once(__DIR__."/root.php"); // define $db
+
 // All variables must be defined to a default
 
 function zero_cookie($name) {
